@@ -1,0 +1,6 @@
+{
+    "role_name": "role_name",
+    "author": "your name",
+    "description": "role description",
+    "license": ["GPLv3", "GPLv2", "BSD", "MIT", "Apache", "CC-BY"]
+}
