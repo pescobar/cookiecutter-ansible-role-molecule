@@ -14,8 +14,8 @@ platforms:
     # https://app.vagrantup.com/centos/boxes/7
     # https://blog.centos.org/2018/10/updated-centos-vagrant-images-available-v1809-01/
     box_version: "1809.01"
-    cpus: 2
-    memory: 2048
+    cpus: 1
+    memory: 1024
 provisioner:
   name: ansible
   options:
