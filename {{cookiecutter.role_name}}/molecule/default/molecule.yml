@@ -8,12 +8,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: centos7.5-vagrant
-    box: centos/7
-    # centos7.5 image
-    # https://app.vagrantup.com/centos/boxes/7
-    # https://blog.centos.org/2018/10/updated-centos-vagrant-images-available-v1809-01/
-    box_version: "1809.01"
+  - name: bento-centos-7-vagrant
+    box: bento/centos-7
     cpus: 1
     memory: 1024
 provisioner:
