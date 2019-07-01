@@ -10,3 +10,8 @@ rules:
   line-length: disable
   truthy: disable
   comments-indentation: disable
+
+ignore: |
+  roles
+  virtenv
+  venv
