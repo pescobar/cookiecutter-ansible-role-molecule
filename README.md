@@ -17,7 +17,7 @@ The template itself only needs python and cookicuter. Install it in a virtualenv
   * There is another molecule scenario using Vagrant + bento/centos-7 box (1 core - 1GB ram - selinux=permissive)
   * molecule runs [testinfra](https://testinfra.readthedocs.io) in verbose mode
   * the role is executed with [become: true](https://github.com/pescobar/cookiecutter-ansible-role-molecule/blob/master/%7B%7Bcookiecutter.role_name%7D%7D/molecule/default/molecule.yml#L16-L18) (everything is executed as root/sudo)
-* Add a travis or Gitlab-CI config file
+* Add a travis or Gitlab-CI config file (Optional. By default it's not added)
 * And probably something else that I forget... :)
 
 ## Usage
@@ -51,32 +51,31 @@ $ molecule test -s vagrant
 role_name/
 ├── defaults
 │   └── main.yml
+├── .gitignore
+├── .gitlab-ci.yml
 ├── handlers
 │   └── main.yml
 ├── meta
 │   └── main.yml
 ├── molecule
 │   ├── default
-│   │   ├── create.yml
-│   │   ├── destroy.yml
 │   │   ├── Dockerfile.j2
 │   │   ├── INSTALL.rst
 │   │   ├── molecule.yml
-│   │   ├── playbook.yml
-│   │   └── prepare.yml
+│   │   └── playbook.yml
 │   ├── tests
 │   │   └── test_default.py
 │   └── vagrant
-│       ├── create.yml
-│       ├── destroy.yml
 │       ├── INSTALL.rst
 │       ├── molecule.yml
 │       ├── playbook.yml
 │       └── prepare.yml
+├── .pre-commit-config.yaml
 ├── README.md
 ├── tasks
 │   └── main.yml
-└── vars
-    └── main.yml
-
+├── .travis.yml
+├── vars
+│   └── main.yml
+└── .yamllint
 ```
