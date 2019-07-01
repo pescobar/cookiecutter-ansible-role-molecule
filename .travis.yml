@@ -6,10 +6,7 @@ services:
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip install molecule
-  # - pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
-  - pip install docker
+  - pip install yamllint pre-commit
 script:
-  - molecule test -s docker
-notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  - yamllint .
+  - pre-commit run --all-files
