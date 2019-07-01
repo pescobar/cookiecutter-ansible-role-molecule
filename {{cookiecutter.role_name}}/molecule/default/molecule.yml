@@ -1,0 +1,35 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  # this allows to choose the OS to test when executing molecule. e.g.
+  # MOLECULE_DISTRO=centos7 molecule test
+  # MOLECULE_DISTRO=ubuntu1804 molecule test
+  - name: "${MOLECULE_DISTRO}-docker"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  options:
+    become: true
+  lint:
+    name: ansible-lint
+    options:
+      R: true
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  directory: ../tests
+  options:
+    verbose: true
+  lint:
+    name: flake8
