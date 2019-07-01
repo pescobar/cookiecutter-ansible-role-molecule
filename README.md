@@ -24,13 +24,14 @@ The template itself only needs python and cookicuter. Install it in a virtualenv
 
 ### To initialize the role with cookiecuter
 ```
-$ pip install cookiecutter
+$ pip install cookiecutter pre-commit
 $ cookiecutter gh:pescobar/cookiecutter-ansible-role-molecule
 ```
 
 ### To initialize the role with molecule
 
 ```
+$ pip install molecule pre-commit
 $ molecule init template --url https://github.com/pescobar/cookiecutter-ansible-role-molecule
 ```
 
