@@ -17,6 +17,7 @@ The template itself only needs python and cookicuter. Install it in a virtualenv
   * There is another molecule scenario using Vagrant + bento/centos-7 box (1 core - 1GB ram - selinux=permissive)
   * molecule runs [testinfra](https://testinfra.readthedocs.io) in verbose mode
   * the role is executed with [become: true](https://github.com/pescobar/cookiecutter-ansible-role-molecule/blob/master/%7B%7Bcookiecutter.role_name%7D%7D/molecule/default/molecule.yml#L16-L18) (everything is executed as root/sudo)
+* Add a travis or Gitlab-CI config file
 * And probably something else that I forget... :)
 
 ## Usage
