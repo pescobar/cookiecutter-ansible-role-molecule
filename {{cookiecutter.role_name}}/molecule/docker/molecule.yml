@@ -23,7 +23,7 @@ provisioner:
     options:
       R: true
 scenario:
-  name: docker
+  name: default
 verifier:
   name: testinfra
   directory: ../tests

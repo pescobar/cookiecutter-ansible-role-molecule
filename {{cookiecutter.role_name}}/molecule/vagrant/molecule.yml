@@ -21,7 +21,7 @@ provisioner:
     options:
       R: true
 scenario:
-  name: default
+  name: vagrant
 verifier:
   name: testinfra
   directory: ../tests
