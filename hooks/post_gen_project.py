@@ -15,10 +15,10 @@ def subprocess_cmd(command):
 
 
 if '{{ cookiecutter.add_travis_config }}' == 'n':
-    os.remove('.gitlab-ci.yml')
+    os.remove('.travis.yml')
 
 if '{{ cookiecutter.add_Gitlab_CI_config }}' == 'n':
-    os.remove('.travis.yml')
+    os.remove('.gitlab-ci.yml')
 
 subprocess_cmd('git init')
 subprocess_cmd('git add .')
