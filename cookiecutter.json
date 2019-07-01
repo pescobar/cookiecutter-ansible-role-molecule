@@ -2,5 +2,7 @@
     "role_name": "role_name",
     "author": "your name",
     "description": "role description",
+    "add_travis_config": "n",
+    "add_Gitlab_CI_config": "n",
     "license": ["GPLv3", "GPLv2", "BSD", "MIT", "Apache", "CC-BY"]
 }
