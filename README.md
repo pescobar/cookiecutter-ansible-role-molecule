@@ -33,15 +33,16 @@ $ cookiecutter gh:pescobar/cookiecutter-ansible-role-molecule
 $ molecule init template --url https://github.com/pescobar/cookiecutter-ansible-role-molecule
 ```
 
-### To test the default scenario vagrant + centos7
+### To test the default scenario docker + centos7/systemd image
 ```
 $ molecule test
 ```
 
-### To test the second scenario docker + centos/systemd image
+### To test the scenario with vagrant + centos7
 ```
-$ molecule test -s docker
+$ molecule test -s vagrant
 ```
+
 
 ## Directory structure
 ```
@@ -56,23 +57,24 @@ role_name/
 │   ├── default
 │   │   ├── create.yml
 │   │   ├── destroy.yml
-│   │   ├── INSTALL.rst
-│   │   ├── molecule.yml
-│   │   ├── playbook.yml
-│   │   └── prepare.yml
-│   ├── docker
-│   │   ├── create.yml
-│   │   ├── destroy.yml
 │   │   ├── Dockerfile.j2
 │   │   ├── INSTALL.rst
 │   │   ├── molecule.yml
 │   │   ├── playbook.yml
 │   │   └── prepare.yml
-│   └── tests
-│       └── test_default.py
+│   ├── tests
+│   │   └── test_default.py
+│   └── vagrant
+│       ├── create.yml
+│       ├── destroy.yml
+│       ├── INSTALL.rst
+│       ├── molecule.yml
+│       ├── playbook.yml
+│       └── prepare.yml
 ├── README.md
 ├── tasks
 │   └── main.yml
 └── vars
     └── main.yml
+
 ```
