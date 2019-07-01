@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pescobar/cookiecutter-ansible-role-molecule.svg?branch=master)](https://travis-ci.org/pescobar/cookiecutter-ansible-role-molecule)
+
 # Cookiecutter template for ansible roles
 
 Template for ansible role with [molecule](https://molecule.readthedocs.io/en/latest/) testing
