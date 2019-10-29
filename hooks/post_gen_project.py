@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 
 # https://github.com/audreyr/cookiecutter/issues/723#issuecomment-350561930
 
@@ -11,7 +12,7 @@ import subprocess
 def subprocess_cmd(command):
     process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
     proc_stdout = process.communicate()[0].strip()
-    print proc_stdout
+    print(proc_stdout)
 
 
 if '{{ cookiecutter.add_travis_config }}' == 'n':
@@ -25,4 +26,4 @@ subprocess_cmd('git add .')
 subprocess_cmd('pre-commit install')
 subprocess_cmd('git commit -a -m "Initial commit by cookiecutter"')
 
-print "Path to your new role in the local machine is " + os.getcwd()
+print("Path to your new role in the local machine is " + os.getcwd())
