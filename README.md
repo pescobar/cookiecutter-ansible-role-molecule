@@ -16,7 +16,8 @@ The template itself only needs python, [cookicuter](https://cookiecutter.readthe
 * Add .gitignore with common files I don't want to track in git
 * Add configuration for [Molecule](http://molecule.readthedocs.io) in the "molecule" folder
   * default molecule scenario runs on docker + centos7/systemd image
-  * There is another molecule scenario using Vagrant + bento/centos-7 box (1 core - 1GB ram - selinux=permissive)
+  * There is another molecule scenario using Vagrant + bento/centos-7 box (1 core - 512MB ram - selinux=permissive)
+  * The vagrant scenario requires `pip install molecule-vagrant`
 * Add a travis or Gitlab-CI config file (Optional. By default it's not added)
 * And probably something else that I forget... :)
 
@@ -45,36 +46,31 @@ $ molecule test
 $ molecule test -s vagrant
 ```
 
-
 ## Directory structure
 ```
-role_name/
+ansible-role-example/
 ├── defaults
 │   └── main.yml
 ├── .gitignore
-├── .gitlab-ci.yml
 ├── handlers
 │   └── main.yml
 ├── meta
 │   └── main.yml
 ├── molecule
 │   ├── default
-│   │   ├── Dockerfile.j2
+│   │   ├── converge.yml
 │   │   ├── INSTALL.rst
 │   │   ├── molecule.yml
-│   │   └── playbook.yml
-│   ├── tests
-│   │   └── test_default.py
+│   │   └── verify.yml
 │   └── vagrant
+│       ├── converge.yml
 │       ├── INSTALL.rst
 │       ├── molecule.yml
-│       ├── playbook.yml
-│       └── prepare.yml
+│       └── verify.yml
 ├── .pre-commit-config.yaml
 ├── README.md
 ├── tasks
 │   └── main.yml
-├── .travis.yml
 ├── vars
 │   └── main.yml
 └── .yamllint
