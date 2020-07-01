@@ -1,3 +1,5 @@
+---
+
 extends: default
 
 rules:
@@ -9,7 +11,7 @@ rules:
     level: error
   line-length: disable
   truthy: disable
-  comments-indentation: enable
+  comments-indentation: disable
 
 ignore: |
   roles
