@@ -1,27 +1,26 @@
 ---
+
 dependency:
   name: galaxy
 driver:
   name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 platforms:
-  - name: centos7-docker
-    image: mplachter/docker-centos7-molecule
-    command: /usr/sbin/init
+  - name: instance
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
+    pre_build_image: true
 provisioner:
   name: ansible
-  options:
-    become: true
-  lint:
-    name: ansible-lint
-    options:
-      R: true
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  # options:
+  #   become: true
 verifier:
-  name: testinfra
-  directory: ../tests
-  options:
-    verbose: true
-  lint:
-    name: flake8
+  name: ansible
