@@ -9,7 +9,7 @@ rules:
     level: error
   line-length: disable
   truthy: disable
-  comments-indentation: disable
+  comments-indentation: enable
 
 ignore: |
   roles
