@@ -1,31 +1,23 @@
 ---
+
 dependency:
   name: galaxy
 driver:
   name: vagrant
-  provider:
-    name: virtualbox
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 platforms:
-  - name: bento-centos-7-vagrant
+  - name: vagrant-centos7-bento
     box: bento/centos-7
+    memory: 512
     cpus: 1
-    memory: 1024
 provisioner:
   name: ansible
-  options:
-    become: true
-  lint:
-    name: ansible-lint
-    options:
-      R: true
-scenario:
-  name: vagrant
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  # options:
+  #   become: true
 verifier:
-  name: testinfra
-  directory: ../tests
-  options:
-    verbose: true
-  lint:
-    name: flake8
+  name: ansible
